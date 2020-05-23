@@ -53,7 +53,7 @@ namespace NUnitTestProject3
             driver.FindElement(By.XPath("//input[@id = 'ReorderLevel']")).SendKeys("1");
             driver.FindElement(By.XPath("//input[@type = 'submit']")).Click();
 
-            Assert.AreEqual("Test", driver.FindElement(By.XPath("//a[@href = '/Product/Edit?ProductId=96']")).Text);           
+            Assert.AreEqual("Test", driver.FindElement(By.XPath("//a[contains(text(), 'Test')")).Text);           
         }
 
         [Test]
