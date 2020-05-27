@@ -10,7 +10,6 @@ namespace NUnitTestProject3
     class MainPage
     {
         private IWebDriver driver;
-        protected WebDriverWait wait;
         public MainPage(IWebDriver driver)
         {
             this.driver = driver;
@@ -39,17 +38,9 @@ namespace NUnitTestProject3
             new Actions(driver).Click(clickCreateNew).Build().Perform();
             new Actions(driver).Click(sendkeysProductName).SendKeys("Test").Build().Perform();
             new Actions(driver).Click(clickCategory).Build().Perform();
-
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
             sendkeysCategory.Click();
-            //new Actions(driver).Click(sendkeysCategory).Build().Perform();
-
             new Actions(driver).Click(clickSupplier).Build().Perform();
-
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
             sendkeysSupplier.Click();
-            //new Actions(driver).Click(sendkeysSupplier).Build().Perform();
-
             new Actions(driver).Click(sendkeysUnitPrice).SendKeys("12").Build().Perform();
             new Actions(driver).Click(sendkeysQuantityPerUnit).SendKeys("1").Build().Perform();
             new Actions(driver).Click(sendkeysUnitInStock).SendKeys("1").Build().Perform();

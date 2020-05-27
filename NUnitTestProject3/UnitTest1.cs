@@ -35,7 +35,8 @@ namespace NUnitTestProject3
         {
             loginPage = new LoginPage(driver);
             loginPage.Login(name, password);
-            Assert.AreEqual("Home page", driver.FindElement(By.XPath("//div[h2= 'Home page']")).Text);
+            var assertLogin = driver.FindElement(By.XPath("//div[h2= 'Home page']"));
+            Assert.AreEqual("Home page", assertLogin.Text);
         }
 
         [Test, Order(2)]
@@ -43,8 +44,8 @@ namespace NUnitTestProject3
         {
             mainPage = new MainPage(driver);
             mainPage.AddProduct();
-            Thread.Sleep(2000);
-            Assert.AreEqual("Test", driver.FindElement(By.XPath("//a[contains(text(), 'Test')]")).Text);
+            var assertAddProduct = driver.FindElement(By.XPath("//div[h2='All Products']"));
+            Assert.AreEqual("All Products", assertAddProduct.Text);
         }
 
         [Test, Order(3)]
@@ -52,7 +53,8 @@ namespace NUnitTestProject3
         {
             logoutPage = new LogoutPage(driver);
             logoutPage.Logout();
-            Assert.AreEqual("Login", driver.FindElement(By.XPath("//div[h2= 'Login']")).Text);
+            var assertLogout = driver.FindElement(By.XPath("//div[h2= 'Login']"));
+            Assert.AreEqual("Login", assertLogout.Text);
         }
 
         [OneTimeTearDown]

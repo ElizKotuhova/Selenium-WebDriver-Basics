@@ -16,11 +16,13 @@ namespace NUnitTestProject3
         private IWebElement clickName => driver.FindElement(By.XPath("//input[@id='Name']"));
         private IWebElement clickPussword => driver.FindElement(By.XPath("//input[@id='Password']"));
 
+
         public void Login(string name, string pussword)
         {
             new Actions(driver).Click(clickName).SendKeys(name).Build().Perform();
             new Actions(driver).Click(clickPussword).SendKeys(pussword).Build().Perform();
             new Actions(driver).SendKeys(Keys.Enter).Build().Perform();
+
         }
     }
 }
