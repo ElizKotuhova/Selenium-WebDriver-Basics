@@ -31,8 +31,6 @@ namespace NUnitTestProject3
 
         public void AddProduct()
         {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-
             new Actions(driver).Click(clickProduct).Build().Perform();
             new Actions(driver).Click(clickCreateNew).Build().Perform();
             new Actions(driver).Click(sendkeysProductName).SendKeys("Test").Build().Perform();
