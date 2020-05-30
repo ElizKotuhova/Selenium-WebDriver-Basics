@@ -1,4 +1,7 @@
 ﻿using NUnit.Framework;
+using NUnitTestProject3.busness_object;
+using NUnitTestProject3.service.ui;
+using NUnitTestProject3.tests;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
@@ -7,44 +10,32 @@ using System.Threading;
 
 namespace NUnitTestProject3
 {
-    public class Tests
+    public class Tests : BaseTest
     {
-        private IWebDriver driver;
         private LoginPage loginPage;
         private MainPage mainPage;
         private LogoutPage logoutPage;
+        private ProductService productService;
 
+        private LoginValue value = new LoginValue("user", "user");
 
-        protected const string name = "user";
-        protected const string password = "user";
-
-        [OneTimeSetUp]
-        public void TestFixture()
-        {
-            driver = new ChromeDriver();
-        }
-
-        [SetUp]
-        public void OneTimeSetUp()
-        {
-            driver.Navigate().GoToUrl("http://localhost:5000/");
-        }
 
         [Test, Order(1)]
         public void Login()
         {
             loginPage = new LoginPage(driver);
-            loginPage.Login(name, password);
+            loginPage = loginPage.Login(value);
 
             Assert.That(loginPage.AssertLogin, Is.EqualTo("Home page"));
         }
 
         [Test, Order(2)]
-        public void AddProduct()
+        public void AddProductTest() 
         {
-            mainPage = new MainPage(driver);
-            mainPage.AddProduct();
+            //MainPage mainPage = new MainPage(driver);
+            //mainPage.AddProduct();
 
+            ProductService.Add(AddProduct, driver);
             Assert.That(mainPage.AssertProduct, Is.EqualTo("All Products"));
         }
 
@@ -56,14 +47,6 @@ namespace NUnitTestProject3
 
             Assert.That(logoutPage.AssertLogout, Is.EqualTo("Login"));
         }
-
-        [OneTimeTearDown]
-        public void CleanUp()
-        {
-            driver.Close();
-            driver.Quit();
-        }
-
     }
 }
 

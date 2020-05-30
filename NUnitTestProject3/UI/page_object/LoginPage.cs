@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnitTestProject3.busness_object;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
@@ -17,11 +18,12 @@ namespace NUnitTestProject3
         private IWebElement clickPussword => driver.FindElement(By.XPath("//input[@id='Password']"));
         private IWebElement assertLogin => driver.FindElement(By.XPath("//div[h2= 'Home page']"));
 
-        public void Login(string name, string pussword)
+        public LoginPage Login(LoginValue loginValue)
         {
-            new Actions(driver).Click(clickName).SendKeys(name).Build().Perform();
-            new Actions(driver).Click(clickPussword).SendKeys(pussword).Build().Perform();
+            new Actions(driver).Click(clickName).SendKeys(loginValue.name).Build().Perform();
+            new Actions(driver).Click(clickPussword).SendKeys(loginValue.pussword).Build().Perform();
             new Actions(driver).SendKeys(Keys.Enter).Build().Perform();
+            return new LoginPage(driver);
         }
         public string AssertLogin()
         {
