@@ -5,7 +5,7 @@ using NUnitTestProject3.busness_object;
 
 namespace NUnitTestProject3.busness_object
 {
-    public class LoginValue
+    public class LoginValue 
     {
         public string name { get; set; }
         public string pussword { get; set; }

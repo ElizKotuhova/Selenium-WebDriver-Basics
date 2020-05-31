@@ -7,7 +7,7 @@ using System.Text;
 
 namespace NUnitTestProject3
 {
-    class LoginPage
+    public class LoginPage
     {
         private IWebDriver driver;
         public LoginPage(IWebDriver driver)

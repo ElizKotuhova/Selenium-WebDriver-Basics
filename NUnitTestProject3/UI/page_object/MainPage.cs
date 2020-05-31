@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnitTestProject3.busness_object;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -29,24 +30,23 @@ namespace NUnitTestProject3
         private IWebElement sendkeysReorderLevel => driver.FindElement(By.XPath("//input[@id = 'ReorderLevel']"));
         private IWebElement assertProduct => driver.FindElement(By.XPath("//div[h2='All Products']"));
 
-        public void AddProduct()
+        public void AddProduct(Product product)
         {
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
-            new Actions(driver).Click(clickProduct).Build().Perform();
-            new Actions(driver).Click(clickCreateNew).Build().Perform();
-            new Actions(driver).Click(sendkeysProductName).SendKeys("Test").Build().Perform();
-            new Actions(driver).Click(clickCategory).Build().Perform();
+            new Actions(driver).Click(clickProduct).SendKeys(product.clickProduct).Build().Perform();
+            new Actions(driver).Click(clickCreateNew).SendKeys(product.clickCreateNew).Build().Perform();
+            new Actions(driver).Click(sendkeysProductName).SendKeys(product.sendkeysProductName).Build().Perform();
+            new Actions(driver).Click(clickCategory).SendKeys(product.clickCategory).Build().Perform();
             sendkeysCategory.Click();
-            new Actions(driver).Click(clickSupplier).Build().Perform();
+            new Actions(driver).SendKeys(product.clickSupplier).Build().Perform();
             sendkeysSupplier.Click();
-            new Actions(driver).Click(sendkeysUnitPrice).SendKeys("12").Build().Perform();
-            new Actions(driver).Click(sendkeysQuantityPerUnit).SendKeys("1").Build().Perform();
-            new Actions(driver).Click(sendkeysUnitInStock).SendKeys("1").Build().Perform();
-            new Actions(driver).Click(sendkeysUnitsOnOrder).SendKeys("1").Build().Perform();
-            new Actions(driver).Click(sendkeysReorderLevel).SendKeys("1").Build().Perform();
+            new Actions(driver).SendKeys(product.sendkeysUnitPrice).SendKeys("12").Build().Perform();
+            new Actions(driver).SendKeys(product.sendkeysQuantityPerUnit).SendKeys("1").Build().Perform();
+            new Actions(driver).SendKeys(product.sendkeysUnitInStock).SendKeys("1").Build().Perform();
+            new Actions(driver).SendKeys(product.sendkeysUnitsOnOrder).SendKeys("1").Build().Perform();
+            new Actions(driver).SendKeys(product.sendkeysReorderLevel).SendKeys("1").Build().Perform();
             new Actions(driver).SendKeys(Keys.Enter).Build().Perform();
-
         }
         public string AssertProduct()
         {

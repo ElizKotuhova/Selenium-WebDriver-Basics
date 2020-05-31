@@ -15,7 +15,7 @@ namespace NUnitTestProject3
         private LoginPage loginPage;
         private MainPage mainPage;
         private LogoutPage logoutPage;
-        private ProductService productService;
+        //private ProductService productService;
 
         private LoginValue value = new LoginValue("user", "user");
 
@@ -23,9 +23,10 @@ namespace NUnitTestProject3
         [Test, Order(1)]
         public void Login()
         {
-            loginPage = new LoginPage(driver);
-            loginPage = loginPage.Login(value);
+            //loginPage = new LoginPage(driver);
+            //loginPage = loginPage.Login(value);
 
+            loginPage = ProductService.Add(driver, value, loginValue);
             Assert.That(loginPage.AssertLogin, Is.EqualTo("Home page"));
         }
 
@@ -35,7 +36,7 @@ namespace NUnitTestProject3
             //MainPage mainPage = new MainPage(driver);
             //mainPage.AddProduct();
 
-            ProductService.Add(AddProduct, driver);
+            ProductService.Add(AddProduct, driver, product);
             Assert.That(mainPage.AssertProduct, Is.EqualTo("All Products"));
         }
 
