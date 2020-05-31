@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace NUnitTestProject3.busness_object
 {
-    public class Product
+    public class Product 
     {
+        
         public string clickProduct { get; set; }
         public string clickCreateNew { get; set; }
         public string sendkeysProductName { get; set; }
@@ -31,6 +33,7 @@ namespace NUnitTestProject3.busness_object
                         string sendkeysUnitsOnOrder,
                         string sendkeysReorderLevel)
         {
+
             this.clickProduct = clickProduct;
             this.clickCreateNew = clickCreateNew;
             this.sendkeysProductName = sendkeysProductName;

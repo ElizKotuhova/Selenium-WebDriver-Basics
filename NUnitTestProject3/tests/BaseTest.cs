@@ -20,7 +20,6 @@ namespace NUnitTestProject3.tests
             driver = new ChromeDriver();
         }
 
-
         [SetUp]
         public void OneTimeSetUp()
         {
