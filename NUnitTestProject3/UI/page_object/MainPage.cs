@@ -32,20 +32,18 @@ namespace NUnitTestProject3
 
         public void AddProduct(Product product)
         {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-
-            new Actions(driver).Click(clickProduct).SendKeys(product.clickProduct).Build().Perform();
-            new Actions(driver).Click(clickCreateNew).SendKeys(product.clickCreateNew).Build().Perform();
-            new Actions(driver).Click(sendkeysProductName).SendKeys(product.sendkeysProductName).Build().Perform();
-            new Actions(driver).Click(clickCategory).SendKeys(product.clickCategory).Build().Perform();
+            new Actions(driver).Click(clickProduct).Build().Perform();
+            new Actions(driver).Click(clickCreateNew).Build().Perform();
+            sendkeysProductName.SendKeys(product.sendkeysProductName);
+            new Actions(driver).Click(clickCategory).Build().Perform();
             sendkeysCategory.Click();
-            new Actions(driver).SendKeys(product.clickSupplier).Build().Perform();
+            new Actions(driver).Click(clickSupplier).Build().Perform();
             sendkeysSupplier.Click();
-            new Actions(driver).SendKeys(product.sendkeysUnitPrice).SendKeys("12").Build().Perform();
-            new Actions(driver).SendKeys(product.sendkeysQuantityPerUnit).SendKeys("1").Build().Perform();
-            new Actions(driver).SendKeys(product.sendkeysUnitInStock).SendKeys("1").Build().Perform();
-            new Actions(driver).SendKeys(product.sendkeysUnitsOnOrder).SendKeys("1").Build().Perform();
-            new Actions(driver).SendKeys(product.sendkeysReorderLevel).SendKeys("1").Build().Perform();
+            sendkeysUnitPrice.SendKeys(product.sendkeysUnitPrice);
+            sendkeysQuantityPerUnit.SendKeys(product.sendkeysQuantityPerUnit);
+            sendkeysUnitInStock.SendKeys(product.sendkeysUnitInStock);
+            sendkeysUnitsOnOrder.SendKeys(product.sendkeysUnitsOnOrder);
+            sendkeysReorderLevel.SendKeys(product.sendkeysReorderLevel);
             new Actions(driver).SendKeys(Keys.Enter).Build().Perform();
         }
         public string AssertProduct()

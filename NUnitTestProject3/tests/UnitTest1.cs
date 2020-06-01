@@ -12,30 +12,25 @@ namespace NUnitTestProject3
 {
     public class Tests : BaseTest
     {
-        private LoginPage loginPage;
         private MainPage mainPage;
         private LogoutPage logoutPage;
 
         private LoginValue loginValue = new LoginValue("user", "user");
-        
+        private Product product = new Product("Anything", "12", "1", "1", "1", "1");
 
         [Test, Order(1)]
         public void Login()
         {
-            //LoginPage loginPage = new LoginPage(driver);
-            //loginPage = loginPage.Login(loginValue);
+            LoginPage loginPage = new LoginPage(driver);
+            loginPage = loginPage.Login(loginValue);
 
-            loginPage = new ProductService.Add(driver, loginValue);
             Assert.That(loginPage.AssertLogin, Is.EqualTo("Home page"));
         }
 
         [Test, Order(2)]
         public void AddProductTest() 
         {
-            //MainPage mainPage = new MainPage(driver);
-            //mainPage.AddProduct(driver);
-
-            mainPage = new ProductService.Add(driver, product);
+            mainPage = ProductService.AddProduct(driver, product);
             Assert.That(mainPage.AssertProduct, Is.EqualTo("All Products"));
         }
 

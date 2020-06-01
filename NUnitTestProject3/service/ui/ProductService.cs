@@ -4,18 +4,19 @@ using System.Collections.Generic;
 using System.Text;
 using NUnitTestProject3.busness_object;
 using System.Runtime.CompilerServices;
+using OpenQA.Selenium.Interactions;
 
 namespace NUnitTestProject3.service.ui
 {
     public class ProductService 
     {
-        public void Add(IWebDriver driver, Product product, LoginValue loginValue)
-        {
-            LoginPage loginPage = new LoginPage(driver);           
-            loginPage.Login(loginValue);
 
+        public static MainPage AddProduct(IWebDriver driver, Product product)
+        {
             MainPage mainPage = new MainPage(driver);
-            mainPage.AddProduct(product);            
+            mainPage.AddProduct(product);
+
+            return new MainPage(driver);
         }
     }
 }
