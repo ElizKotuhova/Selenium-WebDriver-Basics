@@ -31,7 +31,7 @@ namespace NUnitTestProject3
         public void AddProductTest() 
         {
             mainPage = ProductService.AddProduct(driver, product);
-            Assert.That(mainPage.AssertProduct, Is.EqualTo("All Products"));
+            Assert.AreEqual(product.sendkeysProductName, mainPage.AssertProduct(product));
         }
 
         [Test, Order(3)]

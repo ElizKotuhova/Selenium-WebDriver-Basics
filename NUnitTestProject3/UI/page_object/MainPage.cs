@@ -46,10 +46,10 @@ namespace NUnitTestProject3
             sendkeysReorderLevel.SendKeys(product.sendkeysReorderLevel);
             new Actions(driver).SendKeys(Keys.Enter).Build().Perform();
         }
-        public string AssertProduct()
+        public string AssertProduct(Product product)
         {
+            IWebElement assertProduct = driver.FindElement(By.XPath($"//*[text()=\"{product.sendkeysProductName}\"]"));
             return assertProduct.Text;
         }
-
     }
 }
