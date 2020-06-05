@@ -14,17 +14,14 @@ namespace NUnitTestProject3.step_definitions
     [Binding]
     class ProductSteps
     {
-        //private IWebDriver driver;
-        IWebDriver driver = new ChromeDriver();
+        private IWebDriver driver;
 
         [Given(@"I open ""(.*)"" url")]
         public void GivenIopenUrl(string url)
         {
-            //driver = new ChromeDriver();
-            //driver.Manage().Window.Maximize();
-            //driver.Url = url;
-            //driver.Navigate().GoToUrl(url);
+            driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
+            driver.Url = url;
             driver.Navigate().GoToUrl(url);
         }
 
@@ -85,8 +82,6 @@ namespace NUnitTestProject3.step_definitions
         [Then(@"I check that ""(.*)"" product has been created")]
         public void ICheckThatAnythingProductHasBeenCreated(string ProductName)
         {
-            //new MainPage(driver).AssertProduct(new Product(ProductName, null, null, null, null, null));
-
             MainPage mainPage = new MainPage(driver);
             Assert.AreEqual(ProductName, mainPage.AssertProduct(new Product(ProductName, null, null, null, null, null)));
         }
