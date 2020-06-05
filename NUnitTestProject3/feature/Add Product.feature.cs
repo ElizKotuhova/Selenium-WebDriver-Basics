@@ -103,35 +103,35 @@ namespace NUnitTestProject3.Feature
   testRunner.Given("I open \"http://localhost:5000/\" url", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 11
-  testRunner.When("I type my value Name and Pussword", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.When("I type \"user\" Name and \"user\" Pussword", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 12
-  testRunner.When("I click button \"Enter\" Login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.And("I click button Enter Login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
-  testRunner.When("I click on the link All Products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.And("I click on the link All Products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
-  testRunner.When("I click the Create new button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.And("I click the Create new button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 15
-  testRunner.When("I type \"Anything\" ProductName", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.And("I type \"Anything\" ProductName", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 16
-  testRunner.When("I pick Category", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.And("I pick Category", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 17
-  testRunner.When("I pick Supplier", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.And("I pick Supplier", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 18
-  testRunner.When("I fill fields \"12\" UnitPrice, \"1\" QuantityPerUnit, \"1\" UnitsInStock, \"1\" UnitsOnO" +
-                        "rder, \"1\" ReorderLevel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.And("I fill fields \"12\" UnitPrice, \"1\" QuantityPerUnit, \"1\" UnitsInStock, \"1\" UnitsOnO" +
+                        "rder, \"1\" ReorderLevel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 19
-  testRunner.When("I click button Enter Product", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.And("I click button Enter Product", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 20
-  testRunner.Then("I check that Anything product has been created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("I check that \"Anything\" product has been created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
